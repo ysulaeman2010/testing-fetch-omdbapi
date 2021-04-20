@@ -1,21 +1,3 @@
-/* const xhr = new XMLHttpRequest();
-xhr.onreadystatechange = function(){
-    if(xhr.status === 200){
-        if(xhr.readyState === 4){
-            console.log(JSON.parse(xhr.response));
-        }
-    }else{
-        console.log(xhr.responseText);
-    }
-}
-
-xhr.open('get','http://www.omdbapi.com/?apikey=9cea0bf4&s=avengers');
-xhr.send(); */
-
-/* fetch('http://www.omdbapi.com/?apikey=9cea0bf4&s=avengers')
-    .then(response => response.json())
-    .then(response => console.log(response)); */
-
 const searchButton = document.querySelector(".search-button");
 searchButton.addEventListener("click", function () {
   const inputKeyword = document.querySelector(".input-keyword");
@@ -40,10 +22,9 @@ searchButton.addEventListener("click", function () {
           fetch("http://www.omdbapi.com/?apikey=9cea0bf4&i=" + imdbID)
             .then((response) => response.json())
             .then((m) => {
-               const movieDetail = showMovieDetails(m);
-                    const modalBody = document.querySelector('.modal-content');
-                    modalBody.innerHTML = movieDetail; 
-
+              const movieDetail = showMovieDetails(m);
+              const modalBody = document.querySelector(".modal-content");
+              modalBody.innerHTML = movieDetail;
             });
         });
       });
